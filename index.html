@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="assets/css/desing.css">
+    <link rel="stylesheet" href="assets/css/font.css">k
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <title>FIP Address Tracker</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 id="title">IP Address Tracker</h1>
+        <div  id='btn' class="box-input">
+          <input id="ipdata" type="text" placeholder="Search for any IP address or domain">
+          <img id="arrow" src="images/icon-arrow.svg" alt="button">
+        </div>
+        <ul>
+          <li id="ip">
+            <p class="sectionTitle">IP ADDRESS</p>
+            <br/>
+            <p id="ipRequest" class="data">---------</p>
+          </li>
+          <li id="location">
+            <p class="sectionTitle">LOCATION</p>
+            <br/>
+            <p id="locationData" class="data">-------</p>
+          </li>
+          <li id="time">
+            <p class="sectionTitle">TIMEZONE</p>
+            <br/>
+            <p id="timezone" class="data">UTC <span id="timeData" class="data">------</span></p>
+          </li>
+          <li id="isp">
+            <p class="sectionTitle">ISP</p>
+            <br/>
+            <p id="ispData" class="data">------</p>
+          </li>
+        </ul>
+      </header>
+      <div id="map"></div>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script type="module" src="assets/js/map.js"></script>
+    <script type="module" src="assets/js/apiKey.js"></script>
+  </body>
+</html>
