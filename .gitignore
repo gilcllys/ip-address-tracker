@@ -15,5 +15,5 @@
 .DS_Store
 
 /node_modules
-.apiKey
+.apiKey.js
 
