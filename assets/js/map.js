@@ -67,7 +67,8 @@ function get_API(url){
 
 // --------------------------------------------------------------------------------------
 // Event handler
-button.addEventListener('click',()=>{
-    const url = ip_or_domain(input.value)
-    get_API(url)
+button.addEventListener('click',(e)=>{
+    console.log(e.target.value)
+    //const url = ip_or_domain(input.value)
+   //get_API(url)
 })
