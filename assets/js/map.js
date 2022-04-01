@@ -85,9 +85,10 @@ function CheckIP(input_user){
 // Checking the Domain format
 function CheckDomain(input_user){
     let domain = input_user.split('.')
-    if (domain[0] == 'www' && domain[2] == 'com'){
+    if (domain[0] == 'www' && domain[2] == 'com' || domain[2] == 'br'){
         return true
-    }else{
+    }
+    else{
         return false
     }
 }
