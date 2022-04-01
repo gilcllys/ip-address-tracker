@@ -33,6 +33,9 @@
         width: 330px;
         height: fit-content;
     }
+    .data{
+        margin-top: 15px;
+    }
 
     #location, #time, #isp{
         border-left: none;
@@ -41,5 +44,12 @@
     #map{
         height: 100%;
         width: 100%;
+    }
+
+    .erro{
+        position: absolute;
+        top: 140px;
+        width: 300px;
+        height: 85px;
     }
 }
