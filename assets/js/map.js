@@ -1,7 +1,7 @@
 import key_ip from "./apiKey.js";
 const button = document.getElementById('btn')
 const input = document.getElementById('ipdata')
-
+const boxErro = document.querySelector('div.erro')
 let ip = document.getElementById('ipRequest')
 let location = document.getElementById('locationData')
 let timezone = document.getElementById('timeData')
@@ -45,7 +45,7 @@ function UpdateMap(lat,long){
 // -----------------------------------------------------------------------------------------
 // change the url according the input user 
 function ip_or_domain(input_user){
-    if(!isNaN(input_user)){
+    if(!isNaN(parseFloat(input_user))){
         return `https://geo.ipify.org/api/v2/country,city?apiKey=${key_ip}&ipAddress=${input_user}&domain=`
     }else{
         return `https://geo.ipify.org/api/v2/country,city?apiKey=${key_ip}&ipAddress=&domain=${input_user}`
@@ -64,11 +64,62 @@ function get_API(url){
     })
     .catch(erro => console.log(erro))
 }
+// --------------------------------------------------------------------------------------
+// Checking the IP format
+function CheckIP(input_user){
+    let sum = 0
+    for (let letters of input_user){
+        if (letters == '.'){
+            sum ++
+        }
+        else{
+            continue
+        }
+    }
+    if (sum == 3){
+        return true
+    }else{
+        return false
+    }
+}
+// Checking the Domain format
+function CheckDomain(input_user){
+    let domain = input_user.split('.')
+    if (domain[0] == 'www' && domain[2] == 'com'){
+        return true
+    }else{
+        return false
+    }
+}
+
+// Checking if the input format is correct
+function CheckInput(input_user){   
+    if(input_user == null){
+        return true
+    }
+    else{ 
+        if(!isNaN(parseFloat(input_user))){
+            return CheckIP(input_user)
+        }else{
+            return CheckDomain(input_user)
+        }
+    }
+}
 
 // --------------------------------------------------------------------------------------
 // Event handler
-button.addEventListener('click',(e)=>{
-    console.log(e.target.value)
-    //const url = ip_or_domain(input.value)
-   //get_API(url)
+button.addEventListener('click',()=>{
+    let validation = CheckInput(input.value)
+    console.log(validation)
+    //console.log(boxErro)
+    if (validation == false){
+        // mostrar mensagem de erro
+        boxErro.style.display = 'block'
+    }else{
+        // consumir a API e rodar o código normalmente
+        boxErro.style.display = 'none'
+        const url = ip_or_domain(input.value)
+        console.log(url)
+        get_API(url)
+    }
 })

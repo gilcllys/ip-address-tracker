@@ -125,3 +125,19 @@ li{
     height: 400px;
     width: 100%;
 }
+
+/* ---------------------------------------------  */
+/* ERRO Message */
+.erro{
+    position: absolute;
+    bottom: 380px;
+    z-index: 3;
+    background-color: hsla(0, 0%, 0%, 0.808);
+    width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: red;
+    border-radius: 10px;
+    display: none;   
+}
